@@ -1,0 +1,54 @@
+{
+	"name": "zip-address",
+	"version": "1.0.0",
+	"description": "Search address by zip-code BR",
+	"scripts": {
+		"build:dev": "NODE_ENV=development webpack --config webpack.config.js --hide-modules",
+		"build:prod": "NODE_ENV=production webpack --config webpack.config.js",
+		"start": "NODE_ENV=development webpack-dev-server",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"zip",
+		"map"
+	],
+	"author": {
+		"name": "Guilherme Paiva",
+		"url": "https://guilherme.dev/",
+		"email": "gf.paiva@yahoo.com.br"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gfpaiva/zip-address.git"
+	},
+	"bugs": {
+		"url": "https://github.com/gfpaiva/zip-address/issues"
+	},
+	"homepage": "https://github.com/gfpaiva/zip-address#readme",
+	"devDependencies": {
+		"@babel/core": "^7.4.5",
+		"autoprefixer": "^9.6.0",
+		"babel-loader": "^8.0.6",
+		"babel-preset-react-app": "^9.0.0",
+		"css-loader": "^3.0.0",
+		"css-mqpacker": "^7.0.0",
+		"cssnano": "^4.1.10",
+		"file-loader": "^4.0.0",
+		"html-webpack-plugin": "^3.2.0",
+		"mini-css-extract-plugin": "^0.7.0",
+		"node-sass": "^4.12.0",
+		"postcss-loader": "^3.0.0",
+		"sass-loader": "^7.1.0",
+		"style-loader": "^0.23.1",
+		"webpack": "^4.34.0",
+		"webpack-cli": "^3.3.4",
+		"webpack-dev-server": "^3.7.1"
+	},
+	"dependencies": {
+		"normalize.css": "^8.0.1",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"rfs": "^8.0.4"
+	}
+}
