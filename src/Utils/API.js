@@ -1,6 +1,6 @@
 const CEP_BASE_URL = 'https://viacep.com.br';
 const MAPS_BASE_URL = 'https://maps.googleapis.com/maps/api';
-export const MAPS_API_KEY = 'AIzaSyDpAlNQ17xWJAZAvnm0xZrBFCdWLvI1kMk';
+export const MAPS_API_KEY = process.env.MAPS_API_KEY;
 
 const requestGet = async URL => {
 	try {

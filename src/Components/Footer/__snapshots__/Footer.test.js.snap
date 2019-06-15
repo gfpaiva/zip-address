@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should mount properly 1`] = `
+<Footer>
+  <footer
+    className="footer text-center"
+  >
+    <p>
+      Feito com ❤️ por: 
+      <a
+        className="linked"
+        href="https://guilherme.dev/"
+        target="_blank"
+      >
+        Guilherme Paiva
+      </a>
+    </p>
+  </footer>
+</Footer>
+`;

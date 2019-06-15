@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWepackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -20,6 +21,7 @@ plugins.push(new HtmlWepackPlugin({
 	favicon: './src/favicon.ico'
 
 }));
+plugins.push(new Dotenv());
 
 if(isProduction) {
 	plugins.push(new webpack.optimize.ModuleConcatenationPlugin());

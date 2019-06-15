@@ -4,6 +4,7 @@
 
 ## 🏃🏽‍♂️ Rodar projeto local
 
+Antes de tudo crie um arquivo `.env` na raiz do projeto. Será necessário configurar a chave `MAPS_API_KEY` com a sua [API KEY do Google](https://developers.google.com/maps/documentation/geocoding/get-api-key)
 `npm start` ou `npm start -- --no` e abra `http://localhost:3000/` no seu browser
 
 **Instalação**
@@ -23,7 +24,7 @@ Npm scripts:
 
 ## 🔍 Testes
 
-**Client-side** feitos com [Jest](https://jestjs.io/)
+Feito com [Jest](https://jestjs.io/) e [Enzyme](https://airbnb.io/enzyme/)
 
 Npm scripts:
 
