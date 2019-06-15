@@ -2,5 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './Components/App';
+import AppProvider from './Providers/App.Context';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+import './index.scss';
+
+ReactDOM.render(
+	<AppProvider>
+		<App />
+	</AppProvider>
+	, document.getElementById('app')
+);

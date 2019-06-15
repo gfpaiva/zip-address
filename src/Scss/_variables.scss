@@ -1,7 +1,15 @@
-$primary-color: #3790cf!default;
-$secondary-color: #fff!default;
+$primary-color: #3790cf;
+$secondary-color: #fff;
 
-$container: 1200px!default;
+$light-blue: #2ec8f7;
+$dark-blue: #0a88f7;
 
-$fontFamily: 'Lato', sans-serif!default;
-$text-color: $primary-color!default;
+$container: 1200px;
+
+$fontFamily: 'Lato', sans-serif;
+$text-color: $secondary-color;
+
+$border-radius: 8px;
+$sm-beakpoint:  768px;
+
+$header-height: 80px;

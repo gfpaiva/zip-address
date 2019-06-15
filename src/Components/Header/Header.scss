@@ -1,0 +1,39 @@
+@import '../../Scss/root';
+
+$RainbowSize: 700px;
+
+@keyframes magaluRainbowMove {
+	from { background-position: 0; }
+	to { background-position: $RainbowSize 0; }
+}
+
+.header {
+	height: $header-height;
+	position: relative;
+
+	&:after {
+		@include luiza-gradient;
+		background-size: $RainbowSize;
+		bottom: -5px;
+		content: '';
+		display: block;
+		height: 5px;
+		position: absolute;
+		width: 100%;
+	}
+
+	&--loading:after { animation: magaluRainbowMove 1s linear infinite }
+
+	&__logo {
+		@include square(100px);
+		@include hover-shadow;
+		border-radius: 50%;
+		display: inline-block;
+		font-size: 0;
+		line-height: 0;
+		overflow: hidden;
+		position: relative;
+		transform: translateY(25%);
+		z-index: 1;
+	}
+}

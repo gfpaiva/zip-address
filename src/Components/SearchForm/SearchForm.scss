@@ -1,0 +1,50 @@
+@import '../../Scss/root';
+
+.search-form {
+	border-radius: $border-radius;
+	padding: 2em;
+
+	&__container {
+		@media screen and (max-width: $sm-beakpoint) { flex-direction: column }
+		align-items: center;
+		border: none;
+		display: flex;
+	}
+
+	&__title {
+		@media screen and (max-width: $sm-beakpoint) { text-align: center }
+		margin-top: 0;
+	}
+
+	&__input {
+		@media screen and (max-width: $sm-beakpoint) { margin: .7em 0 }
+		border-radius: $border-radius;
+		border: 1px solid $primary-color;
+		flex: 1;
+		margin: 0 .7em;
+		outline: none;
+		padding: .5em;
+
+		&:focus { border-color: lighten($primary-color, 20%) }
+
+		&-container {
+			align-self: stretch;
+			display: flex;
+			flex-direction: column;
+			justify-content: stretch;
+			position: relative;
+		}
+
+		&-message {
+			@media screen and (min-width: $sm-beakpoint + 1) {
+				bottom: -2.3em;
+				left: 1em;
+				position: absolute;
+			}
+			color: red;
+			margin-bottom: .7em;
+		}
+
+		&--error { border-color: red; }
+	}
+}

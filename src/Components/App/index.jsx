@@ -1,13 +1,19 @@
 import React from 'react';
 
+import Header from '../Header';
+import Footer from '../Footer';
+import SearchForm from '../SearchForm';
+
 import './App.scss';
-import logo from './luizalabs.png';
 
 export default function App() {
 	return (
-		<>
-			<h1>Olá mundo!</h1>
-			<p>Teste para o <img src={logo} alt="Luiza Labs" title="Luiza Labs" /></p>
-		</>
+		<main className="app">
+			<Header />
+			<section className="app__content container">
+				<SearchForm />
+			</section>
+			<Footer />
+		</main>
 	)
-};
+}

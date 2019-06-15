@@ -1,0 +1,21 @@
+@import '../../Scss/root';
+
+.address-info {
+	border-radius: $border-radius;
+	margin-top: 2em;
+	overflow: hidden;
+
+	&__address {
+		font-style: normal;
+		padding: 2em;
+	}
+
+	&__detail { margin-bottom: 0 }
+
+	&__map {
+		height: 500px;
+		width: 100%;
+	}
+
+	&__marker { @include rfs(30) }
+}

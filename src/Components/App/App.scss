@@ -1,3 +1,8 @@
-body {
-	background-color: red;
+@import '../../Scss/root';
+
+.app {
+	&__content {
+		padding-top: $header-height;
+		min-height: calc(100vh - #{$header-height * 2});
+	}
 }
