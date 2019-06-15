@@ -9,7 +9,7 @@ export default function Header() {
 	const { loading } = useAppContext();
 
 	return (
-		<header className={`${loading ? 'header--loading ' : ''}header bg-secondary color-primary text-center`}>
+		<header data-testid="header" className={`${loading ? 'header--loading ' : ''}header bg-secondary color-primary text-center`}>
 			<h1 className="my-0">
 				<a
 					className="header__logo"

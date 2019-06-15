@@ -2,6 +2,8 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
+  automock: false,
+
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
 
@@ -17,12 +19,6 @@ module.exports = {
   moduleDirectories: [
     "node_modules"
   ],
-
-  // The root directory that Jest should scan for tests and modules within
-  // rootDir: 'src',
-
-  // A list of paths to snapshot serializer modules Jest should use for snapshot testing
-  snapshotSerializers: ["enzyme-to-json/serializer"],
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
@@ -42,4 +38,9 @@ module.exports = {
   verbose: true,
 
   setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
+
+  moduleNameMapper: {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+    "\\.(css|scss|sass)$": "<rootDir>/__mocks__/styleMock.js"
+  }
 };

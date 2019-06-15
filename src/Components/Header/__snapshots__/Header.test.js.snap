@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should mount properly 1`] = `
+<header
+  class="header bg-secondary color-primary text-center"
+  data-testid="header"
+>
+  <h1
+    class="my-0"
+  >
+    <a
+      class="header__logo"
+      href="http://www.luizalabs.com/"
+      target="_blank"
+    >
+      LuizaLabs
+      <img
+        alt="Luiza Labs"
+        class="header__logo-image full-width"
+        src="test-file-stub"
+        title="Luiza Labs"
+      />
+    </a>
+  </h1>
+</header>
+`;

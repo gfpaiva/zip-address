@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 export const AppContext = createContext();
 export const useAppContext = () => useContext(AppContext);
 
-export default function AppProvider({ children }) {
-	const [ loading, setLoading ] = useState(false);
+export default function AppProvider({ children, initialState = false }) {
+	const [ loading, setLoading ] = useState(initialState);
 
 	return (
 		<AppContext.Provider value={{
@@ -22,4 +22,5 @@ AppProvider.propTypes = {
 		PropTypes.arrayOf(PropTypes.node),
 		PropTypes.node
 	]).isRequired,
+	initialState: PropTypes.bool
 }
