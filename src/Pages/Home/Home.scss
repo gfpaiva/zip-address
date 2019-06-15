@@ -1,0 +1,7 @@
+@import '../../Scss/root';
+
+.home {
+	&__map-icon { @include rfs(250) }
+	&__title { @include rfs(44) }
+	&__description { @include rfs(22) }
+}

@@ -37,6 +37,7 @@ module.exports = {
 	devServer: {
 		port: 3000,
 		stats: 'errors-only',
+		historyApiFallback: true,
 		open: !process.argv.includes('--no')
 	},
 	module: {

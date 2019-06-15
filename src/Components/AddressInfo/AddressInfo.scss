@@ -1,9 +1,34 @@
 @import '../../Scss/root';
 
+$to-up-amount: -5%;
+$transition-duration: 300ms;
+
 .address-info {
 	border-radius: $border-radius;
-	margin-top: 2em;
+	margin-bottom: 2em;
 	overflow: hidden;
+
+	&-enter {
+		opacity: 0;
+		transform: translateY($to-up-amount);
+	}
+
+	&-enter-active {
+		opacity: 1;
+		transform: translateY(0);
+		transition: opacity $transition-duration, transform $transition-duration;
+	}
+
+	&-exit {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	&-exit-active {
+		opacity: 0;
+		transform: translateY($to-up-amount);
+		transition: opacity $transition-duration, transform $transition-duration;
+	}
 
 	&__address {
 		font-style: normal;

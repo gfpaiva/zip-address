@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
-import { MdClose } from 'react-icons/md';
-import { FaMapMarkerAlt, FaMapMarkedAlt } from 'react-icons/fa';
 
 import { MAPS_API_KEY } from '../../Utils/API';
 
+import { Map, Pin } from '../Icons';
+
 import './AddressInfo.scss';
 
-const Marker = () => <div className="address-info__marker"><FaMapMarkerAlt /></div>;
+const Marker = () => <div className="address-info__marker"><Pin /></div>
 
 export default function AddressInfo({ street, neighborhood, city, uf, zip, geolocation }) {
 	return (
 		<div className="address-info bg-secondary color-primary">
 			<address className="address-info__address">
 				<h3 className="address-info__street my-0">
-					<span role="img" aria-label="Mapa"><FaMapMarkedAlt /></span>&nbsp;
+					<Map />&nbsp;
 					{street}
 				</h3>
 

@@ -1,8 +1,10 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import Header from '../Header';
 import Footer from '../Footer';
-import SearchForm from '../SearchForm';
+
+import routes from '../../Utils/Routes';
 
 import './App.scss';
 
@@ -11,7 +13,11 @@ export default function App() {
 		<main className="app">
 			<Header />
 			<section className="app__content container">
-				<SearchForm />
+				<Switch>
+					{routes.map(route => (
+						<Route {...route} />
+					))}
+				</Switch>
 			</section>
 			<Footer />
 		</main>

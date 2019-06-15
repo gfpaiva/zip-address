@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import MaskedInput from 'react-text-mask';
 import { Formik } from 'formik';
-import { MdSearch } from 'react-icons/md';
+import { CSSTransition } from 'react-transition-group';
 
 import { useAppContext } from '../../Providers/App.Context';
 import { getAddressByZip, getGeolocation } from '../../Utils/API';
 
+import AddressInfo from '../AddressInfo';
 import Button from '../Button';
+import { Search } from '../Icons';
 
 import './SearchForm.scss';
-import AddressInfo from '../AddressInfo';
 
 export default function SearchForm() {
 	const { loading, setLoading } = useAppContext();
@@ -19,13 +20,20 @@ export default function SearchForm() {
 			lat: 0,
 			lng: 0
 		},
-		address: {}
+		address: {
+			logradouro: '',
+			bairro: '',
+			localidade: '',
+			uf: '',
+			cep: ''
+		}
 	});
 	const [ hasError, setHasError ] = useState(false);
 
 	return (
 
 		<>
+			{/* FORM WITH VALIDATION */}
 			<Formik
 				initialValues={{zipCode: ''}}
 				validate={values => {
@@ -36,7 +44,12 @@ export default function SearchForm() {
 					return errors;
 				}}
 				onSubmit={async ({ zipCode }, { resetForm }) => {
-					setMap({ visible: false });
+					if(map.address.cep === zipCode) return resetForm();
+
+					setMap(prevState => ({
+						...prevState,
+						visible: false
+					}));
 					setHasError(false);
 
 					try {
@@ -99,9 +112,7 @@ export default function SearchForm() {
 								type="submit"
 								disabled={loading}
 							>
-								<span role="img" aria-label="Search">
-									<MdSearch />
-								</span>
+								<Search />
 							</Button>
 						</div>
 					</form>
@@ -109,7 +120,12 @@ export default function SearchForm() {
 			</Formik>
 
 			{/* INFO AND MAP */}
-			{map.visible && (
+			<CSSTransition
+				in={map.visible}
+				timeout={300}
+				classNames="address-info"
+				unmountOnExit
+			>
 				<AddressInfo
 					street={map.address.logradouro}
 					neighborhood={map.address.bairro}
@@ -118,7 +134,7 @@ export default function SearchForm() {
 					zip={map.address.cep}
 					geolocation={map.coords}
 				/>
-			)}
+			</CSSTransition>
 
 			{/* ERROR HANDLING */}
 			{hasError && <p className="text-center"><strong>Ocorreu um erro. <br /> Verifique se o CEP digitado é válido, ou, tente novamente mais tarde.</strong></p>}

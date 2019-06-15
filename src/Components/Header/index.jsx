@@ -13,7 +13,7 @@ export default function Header() {
 			<h1 className="my-0">
 				<a
 					className="header__logo"
-					href="http://www.cabecadelab.com.br/about.html"
+					href="http://www.luizalabs.com/"
 					target="_blank"
 				>
 					LuizaLabs
@@ -27,4 +27,4 @@ export default function Header() {
 			</h1>
 		</header>
 	)
-};
+}

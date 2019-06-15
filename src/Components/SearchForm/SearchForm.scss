@@ -2,6 +2,7 @@
 
 .search-form {
 	border-radius: $border-radius;
+	margin-bottom: 2em;
 	padding: 2em;
 
 	&__container {
@@ -43,6 +44,8 @@
 			}
 			color: red;
 			margin-bottom: .7em;
+
+			&:empty { display: none }
 		}
 
 		&--error { border-color: red; }

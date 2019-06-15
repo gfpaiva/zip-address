@@ -2,7 +2,7 @@
 
 .app {
 	&__content {
-		padding-top: $header-height;
 		min-height: calc(100vh - #{$header-height * 2});
+		padding-top: $header-height;
 	}
 }
