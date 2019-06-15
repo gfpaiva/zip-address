@@ -2,11 +2,11 @@
 
 [BuscaCEP]() Veja os detalhes do endereço e o mapa com base em uma pesquisa de CEP
 
-## 🏃🏽‍♂️ Running locally
+## 🏃🏽‍♂️ Rodar projeto local
 
 `npm start` ou `npm start -- --no` e abra `http://localhost:3000/` no seu browser
 
-**Installation**
+**Instalação**
 - `npm install`
 
 Npm scripts:
@@ -21,7 +21,7 @@ Npm scripts:
 
 - [TravisCI](https://travis-ci.org)
 
-## 🔍 Testing
+## 🔍 Testes
 
 **Client-side** feitos com [Jest](https://jestjs.io/)
 
