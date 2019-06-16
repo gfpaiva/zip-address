@@ -6,6 +6,7 @@ import App from './Components/App';
 
 import AppProvider from './Providers/App.Context';
 
+import './_redirects';
 import './index.scss';
 
 ReactDOM.render(

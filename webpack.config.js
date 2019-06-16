@@ -28,7 +28,7 @@ if(isProduction) {
 	plugins.push(new webpack.DefinePlugin({
 		'process.env':{
 			'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-			'API_URL': JSON.stringify(process.env.MAPS_API_KEY)
+			'MAPS_API_KEY': JSON.stringify(process.env.MAPS_API_KEY)
 		}
 	}));
 } else {
@@ -79,6 +79,17 @@ module.exports = {
 			{
 				test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
 				loader: 'file-loader'
+			},
+
+			/* NETLIFY REDIRECT */
+			{
+				test: [/_redirects/],
+				use: {
+					loader: 'file-loader',
+					options: {
+						name: '[name]',
+					}
+				}
 			}
 		]
 	},
