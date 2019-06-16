@@ -18,7 +18,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script: netlify deploy --site=$NETLIFY_SITE_ID --dir=./build --prod
+  script: netlify deploy --site $NETLIFY_SITE_ID --dir ./build --message "[TravisCI] - $TRAVIS_COMMIT_MESSAGE" --prod
   skip_cleanup: true
   on:
     branch: master
