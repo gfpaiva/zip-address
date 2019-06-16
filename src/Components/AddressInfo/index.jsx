@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 
@@ -11,9 +11,6 @@ import './AddressInfo.scss';
 const Marker = () => <div className="address-info__marker"><Pin /></div>
 
 export default function AddressInfo({ street, neighborhood, city, uf, zip, geolocation }) {
-
-	console.log("TCL: AddressInfo -> geolocation", geolocation);
-
 	return (
 		<div className="address-info bg-secondary color-primary">
 			<address className="address-info__address">
@@ -31,7 +28,7 @@ export default function AddressInfo({ street, neighborhood, city, uf, zip, geolo
 
 			<div className="address-info__map">
 				<GoogleMapReact
-					defaultCenter={geolocation}
+					center={geolocation}
 					defaultZoom={16}
 					bootstrapURLKeys={{ key: MAPS_API_KEY }}
 				>
