@@ -13,7 +13,7 @@ import { Search } from '../Icons';
 
 import './SearchForm.scss';
 
-export default function SearchForm({ submitHandler }) {
+export default function SearchForm() {
 	// Loading from context
 	const { loading, setLoading } = useAppContext();
 
@@ -145,8 +145,4 @@ export default function SearchForm({ submitHandler }) {
 			{hasError && <p data-test="error-message" className="text-center"><strong>Ocorreu um erro. <br /> Verifique se o CEP digitado é válido, ou, tente novamente mais tarde.</strong></p>}
 		</>
 	)
-}
-
-SearchForm.propTypes = {
-	submitHandler: PropTypes.func
 }
