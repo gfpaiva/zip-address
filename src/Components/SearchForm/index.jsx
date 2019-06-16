@@ -36,39 +36,6 @@ export default function SearchForm({ submitHandler }) {
 	// Error state visibility handler
 	const [ hasError, setHasError ] = useState(false);
 
-	// Submit form handler func
-	const defaultSubmitHanlder = async ({ zipCode }, { resetForm }) => {
-		if(map.address.cep === zipCode) return resetForm();
-
-		setMap(prevState => ({
-			...prevState,
-			visible: false
-		}));
-		setHasError(false);
-
-		try {
-			setLoading(true);
-
-			const address = await getAddressByZip(zipCode);
-			const Geolocation = await getGeolocation(address.logradouro);
-			const latLong = Geolocation.results[0].geometry.location;
-
-			setMap({
-				visible: true,
-				coords: {
-					...latLong
-				},
-				address
-			});
-
-			setLoading(false);
-			resetForm();
-		} catch(err) {
-			setHasError(true);
-			setLoading(false);
-		}
-	};
-
 	return (
 		<>
 			{/* FORM WITH VALIDATION */}
@@ -81,7 +48,37 @@ export default function SearchForm({ submitHandler }) {
 
 					return errors;
 				}}
-				onSubmit={submitHandler ? submitHandler : defaultSubmitHanlder}
+				onSubmit={async ({ zipCode }, { resetForm }) => {
+					if(map.address.cep === zipCode) return resetForm();
+
+					setMap(prevState => ({
+						...prevState,
+						visible: false
+					}));
+					setHasError(false);
+
+					try {
+						setLoading(true);
+
+						const address = await getAddressByZip(zipCode);
+						const Geolocation = await getGeolocation(address.logradouro);
+						const latLong = Geolocation.results[0].geometry.location;
+
+						setMap({
+							visible: true,
+							coords: {
+								...latLong
+							},
+							address
+						});
+
+						setLoading(false);
+						resetForm();
+					} catch(err) {
+						setHasError(true);
+						setLoading(false);
+					}
+				}}
 			>
 				{({
 					values,

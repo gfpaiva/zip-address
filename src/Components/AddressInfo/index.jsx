@@ -11,6 +11,9 @@ import './AddressInfo.scss';
 const Marker = () => <div className="address-info__marker"><Pin /></div>
 
 export default function AddressInfo({ street, neighborhood, city, uf, zip, geolocation }) {
+
+	console.log("TCL: AddressInfo -> geolocation", geolocation);
+
 	return (
 		<div className="address-info bg-secondary color-primary">
 			<address className="address-info__address">

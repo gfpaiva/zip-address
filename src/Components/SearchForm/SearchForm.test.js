@@ -41,34 +41,6 @@ describe('<SearchForm />', () => {
 		expect(newValue).toBe(inputValue);
 	});
 
-	it('should submit form with mockedFunc', async () => {
-		const mockedFunc = jest.fn();
-
-		const wrapper = mount(
-			<AppProvider>
-				<SearchForm submitHandler={mockedFunc} />
-			</AppProvider>
-		);
-
-		const inputValue = '00000-000'
-
-		wrapper
-		.find('input#zipCode')
-		.simulate('change', {
-			persist: () => {},
-			target: { value: inputValue, name: 'zipCode' }
-		});
-
-		wrapper
-			.find('form')
-			.simulate('submit');
-
-		await wait();
-		wrapper.update();
-
-		expect(mockedFunc).toHaveBeenCalled();
-	});
-
 	it('should submit form', async () => {
 		fetch
 			.once(JSON.stringify(getAddressByZip))
