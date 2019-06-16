@@ -4,7 +4,7 @@
   "description": "Search address by zip-code BR",
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js --hide-modules",
-    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build:prod": "cross-env NODE_ENV=production MAPS_API_KEY=testeparaprod webpack --config webpack.config.js",
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "test": "jest"
   },

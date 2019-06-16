@@ -21,11 +21,18 @@ plugins.push(new HtmlWepackPlugin({
 	favicon: './src/favicon.ico'
 
 }));
-plugins.push(new Dotenv());
 
 if(isProduction) {
 	plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
 	plugins.push(new MiniCssExtractPlugin({ filename: '[name].css' }));
+	plugins.push(new webpack.DefinePlugin({
+		'process.env':{
+			'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+			'API_URL': JSON.stringify(process.env.MAPS_API_KEY)
+		}
+	}));
+} else {
+	plugins.push(new Dotenv());
 }
 
 module.exports = {
