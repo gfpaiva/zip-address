@@ -1,31 +1,28 @@
 import React from 'react';
-import 'jest-dom/extend-expect';
-import { render, cleanup } from '@testing-library/react';
+import { mount } from 'enzyme';
 
 import AppProvider from '../../Providers/App.Context'
 
 import Header from './index';
 
-afterEach(cleanup);
-
 describe('<Header />', () => {
 	it('should mount properly', () => {
-		const { container } = render(
+		const wrapper = mount(
 			<AppProvider>
 				<Header />
 			</AppProvider>
 		);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(wrapper.find('header')).toMatchSnapshot();
 	});
 
 	it('shoud add loader class when context loading true', () => {
-		const { getByTestId } = render(
+		const wrapper = mount(
 			<AppProvider initialState={true}>
 				<Header />
 			</AppProvider>
 		);
 
-		expect(getByTestId('header')).toHaveClass('header--loading');
+		expect(wrapper.find('header').hasClass('header--loading')).toBeTruthy()
 	});
 });

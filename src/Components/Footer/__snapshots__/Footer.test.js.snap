@@ -2,12 +2,12 @@
 
 exports[`<Footer /> should mount properly 1`] = `
 <footer
-  class="footer text-center"
+  className="footer text-center"
 >
   <p>
     Feito com ❤️ por: 
     <a
-      class="linked"
+      className="linked"
       href="https://guilherme.dev/"
       target="_blank"
     >

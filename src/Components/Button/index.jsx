@@ -6,7 +6,6 @@ import './Button.scss';
 export default function Button({ big, className, children, ...rest }) {
 	return (
 		<button
-			data-testid="button"
 			className={`${big ? 'button--big ' : ''}${className ? `${className} ` : '' }button bg-primary color-secondary`}
 			{...rest}
 		>

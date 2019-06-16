@@ -1,12 +1,11 @@
 import React from 'react';
-import 'jest-dom/extend-expect';
-import { render } from '@testing-library/react';
+import { mount } from 'enzyme'
 
 import AddressInfo from './index';
 
 describe('<AddressInfo />', () => {
 	it('should mount properly', () => {
-		const { container } = render(
+		const wrapper = mount(
 			<AddressInfo
 				street="Test Sreet"
 				neighborhood="Test Neighborhood"
@@ -17,6 +16,6 @@ describe('<AddressInfo />', () => {
 			/>
 		);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(wrapper.find('.address-info__address')).toMatchSnapshot();
 	});
 });

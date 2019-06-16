@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MaskedInput from 'react-text-mask';
+import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { CSSTransition } from 'react-transition-group';
 
@@ -12,8 +13,11 @@ import { Search } from '../Icons';
 
 import './SearchForm.scss';
 
-export default function SearchForm() {
+export default function SearchForm({ submitHandler }) {
+	// Loading from context
 	const { loading, setLoading } = useAppContext();
+
+	// Map State (Infos and visibility hanlder)
 	const [ map, setMap ] = useState({
 		visible: false,
 		coords: {
@@ -28,10 +32,44 @@ export default function SearchForm() {
 			cep: ''
 		}
 	});
+
+	// Error state visibility handler
 	const [ hasError, setHasError ] = useState(false);
 
-	return (
+	// Submit form handler func
+	const defaultSubmitHanlder = async ({ zipCode }, { resetForm }) => {
+		if(map.address.cep === zipCode) return resetForm();
 
+		setMap(prevState => ({
+			...prevState,
+			visible: false
+		}));
+		setHasError(false);
+
+		try {
+			setLoading(true);
+
+			const address = await getAddressByZip(zipCode);
+			const Geolocation = await getGeolocation(address.logradouro);
+			const latLong = Geolocation.results[0].geometry.location;
+
+			setMap({
+				visible: true,
+				coords: {
+					...latLong
+				},
+				address
+			});
+
+			setLoading(false);
+			resetForm();
+		} catch(err) {
+			setHasError(true);
+			setLoading(false);
+		}
+	};
+
+	return (
 		<>
 			{/* FORM WITH VALIDATION */}
 			<Formik
@@ -43,37 +81,7 @@ export default function SearchForm() {
 
 					return errors;
 				}}
-				onSubmit={async ({ zipCode }, { resetForm }) => {
-					if(map.address.cep === zipCode) return resetForm();
-
-					setMap(prevState => ({
-						...prevState,
-						visible: false
-					}));
-					setHasError(false);
-
-					try {
-						setLoading(true);
-
-						const address = await getAddressByZip(zipCode);
-						const Geolocation = await getGeolocation(address.logradouro);
-						const latLong = Geolocation.results[0].geometry.location;
-
-						setMap({
-							visible: true,
-							coords: {
-								...latLong
-							},
-							address
-						});
-
-						setLoading(false);
-						resetForm();
-					} catch(err) {
-						setHasError(true);
-						setLoading(false);
-					}
-				}}
+				onSubmit={submitHandler ? submitHandler : defaultSubmitHanlder}
 			>
 				{({
 					values,
@@ -137,7 +145,11 @@ export default function SearchForm() {
 			</CSSTransition>
 
 			{/* ERROR HANDLING */}
-			{hasError && <p className="text-center"><strong>Ocorreu um erro. <br /> Verifique se o CEP digitado é válido, ou, tente novamente mais tarde.</strong></p>}
+			{hasError && <p data-test="error-message" className="text-center"><strong>Ocorreu um erro. <br /> Verifique se o CEP digitado é válido, ou, tente novamente mais tarde.</strong></p>}
 		</>
 	)
+}
+
+SearchForm.propTypes = {
+	submitHandler: PropTypes.func
 }

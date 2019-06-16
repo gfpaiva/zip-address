@@ -1,39 +1,36 @@
 import React from 'react';
-import 'jest-dom/extend-expect';
-import { render, cleanup } from '@testing-library/react';
+import { mount } from 'enzyme';
 
 import Button from './index';
 
-afterEach(cleanup);
-
 describe('<Button />', () => {
 	it('should mount properly', () => {
-		const { container } = render(
+		const wrapper = mount(
 			<Button>
 				Test
 			</Button>
 		);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('shoud mount with big property', () => {
-		const { getByTestId } = render(
+		const wrapper = mount(
 			<Button big>
 				Test
 			</Button>
 		);
 
-		expect(getByTestId('button')).toHaveClass('button--big');
+		expect(wrapper.find('button').hasClass('button--big')).toBeTruthy();
 	});
 
 	it('shoud mount with custom className', () => {
-		const { getByTestId } = render(
+		const wrapper = mount(
 			<Button className="button--test">
 				Test
 			</Button>
 		);
 
-		expect(getByTestId('button')).toHaveClass('button--test');
+		expect(wrapper.find('button').hasClass('button--test')).toBeTruthy();
 	});
 });

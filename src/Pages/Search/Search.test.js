@@ -1,20 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { mount } from 'enzyme';
 
 import AppProvider from '../../Providers/App.Context'
-import App from './index';
 
-describe('<App />', () => {
+import Search from './index';
+
+describe('<Search />', () => {
 	it('should mount properly', () => {
 		const wrapper = mount(
 			<AppProvider>
-				<Router>
-					<App />
-				</Router>
+				<Search />
 			</AppProvider>
 		);
 
-		expect(wrapper.find('main')).toMatchSnapshot();
+		expect(wrapper).toMatchSnapshot();
 	});
 });

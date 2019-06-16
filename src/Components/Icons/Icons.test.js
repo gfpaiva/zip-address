@@ -1,27 +1,24 @@
 import React from 'react';
-import 'jest-dom/extend-expect';
-import { render, cleanup } from '@testing-library/react';
+import { mount } from 'enzyme'
 
 import { Map, Pin, Search }from './index';
 
-afterEach(cleanup);
-
 describe('<Icons />', () => {
 	it('should mount Map Icon properly', () => {
-		const { container } = render(<Map />);
+		const wrapper = mount(<Map />);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should mount Pin Icon properly', () => {
-		const { container } = render(<Pin />);
+		const wrapper = mount(<Pin />);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(wrapper).toMatchSnapshot();
 	});
 
 	it('should mount Seach Icon properly', () => {
-		const { container } = render(<Search />);
+		const wrapper = mount(<Search />);
 
-		expect(container.firstChild).toMatchSnapshot();
+		expect(wrapper).toMatchSnapshot();
 	});
 });

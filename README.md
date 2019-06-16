@@ -24,7 +24,7 @@ Npm scripts:
 
 ## 🔍 Testes
 
-Feito com [Jest](https://jestjs.io/) e [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+Feito com [Jest](https://jestjs.io/) e [Enzyme](https://airbnb.io/enzyme/)
 
 Npm scripts:
 
