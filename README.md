@@ -1,6 +1,8 @@
 # BUSCA CEP #
 
-[BuscaCEP]() Veja os detalhes do endereço e o mapa com base em uma pesquisa de CEP
+[![Build Status](https://travis-ci.org/gfpaiva/zip-address.svg?branch=master)](https://travis-ci.org/gfpaiva/zip-address)
+
+[BuscaCEP](https://gfpaiva-busca-cep.netlify.com/) Veja os detalhes do endereço e o mapa com base em uma pesquisa de CEP
 
 ## 🏃🏽‍♂️ Rodar projeto local
 
@@ -30,7 +32,12 @@ Npm scripts:
 
 | command              | description                                        |
 | -------------------- | -------------------------------------------------- |
-| npm test              | roda todos os testes em modo `watch`              |
+| npm test -- --watch  | roda todos os testes em modo `watch`               |
+
+## 🚀 Deploy
+
+Hospedado no [netlify](https://www.netlify.com/).
+Deploy feito pela CLI do netlify após os checks do TravisCI.
 
 ## ⚖️ License
 
