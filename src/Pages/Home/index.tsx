@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import Button from '../../Components/Button';
@@ -6,7 +6,7 @@ import { Map, Pin } from '../../Components/Icons';
 
 import './Home.scss';
 
-export default function Home() {
+export function Home() {
 	return (
 		<div className="home text-center">
 			<Map className="home__map-icon" />

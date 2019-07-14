@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import SearchForm from '../../Components/SearchForm'
 
-export default function Search() {
+export function Search() {
 	return <SearchForm />
 }

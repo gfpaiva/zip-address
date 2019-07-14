@@ -1,5 +1,5 @@
-import React from 'react';
+import * as React from 'react';
 
-export default function NotFound() {
+export function NotFound() {
 	return <h1 className="text-center">Page not foud <span role="img" aria-label="Neutral Face">😐</span></h1>
 }

@@ -37,7 +37,7 @@ if(isProduction) {
 
 module.exports = {
 	mode: isProduction ? 'production' : 'development',
-	entry: './src/index.js',
+	entry: './src/index.tsx',
 	output: {
 		filename: 'app.js',
 		path: path.resolve(__dirname, 'build')
@@ -51,11 +51,17 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			/* JS/JSX FILES - LOGIC AND COMPONENTS */
+			/* JS/JSX/TS/TSX FILES - LOGIC AND COMPONENTS */
 			{
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				use: ['babel-loader']
+				test: /\.(js|jsx|ts|tsx)$/,
+				exclude: /(node_modules|\.test\.js$)/,
+				use: ['ts-loader']
+			},
+
+			{
+				enforce: 'pre',
+				test: /\.js$/,
+				loader: 'source-map-loader'
 			},
 
 			/* CSS/SCSS FILES - STYLE */
@@ -94,7 +100,7 @@ module.exports = {
 		]
 	},
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
 	},
 	plugins
 };

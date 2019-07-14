@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { FaMapMarkerAlt, FaMapMarkedAlt } from 'react-icons/fa';
 import { MdSearch } from 'react-icons/md';
 

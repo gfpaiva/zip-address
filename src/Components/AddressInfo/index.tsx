@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 
 import { MAPS_API_KEY } from '../../Utils/API';
@@ -8,9 +8,23 @@ import { Map, Pin } from '../Icons';
 
 import './AddressInfo.scss';
 
+interface Geolocation {
+	lat:number
+	lng:number
+}
+
+interface AddressInfoProps {
+	street:string,
+	neighborhood:string,
+	city:string,
+	uf:string,
+	zip:string,
+	geolocation:Geolocation
+}
+
 const Marker = () => <div className="address-info__marker"><Pin /></div>
 
-export default function AddressInfo({ street, neighborhood, city, uf, zip, geolocation }) {
+export default function AddressInfo({ street, neighborhood, city, uf, zip, geolocation }:AddressInfoProps) {
 	return (
 		<div className="address-info bg-secondary color-primary">
 			<address className="address-info__address">
@@ -32,7 +46,7 @@ export default function AddressInfo({ street, neighborhood, city, uf, zip, geolo
 					defaultZoom={16}
 					bootstrapURLKeys={{ key: MAPS_API_KEY }}
 				>
-					<Marker {...geolocation} />
+					<Marker />
 				</GoogleMapReact>
 			</div>
 		</div>

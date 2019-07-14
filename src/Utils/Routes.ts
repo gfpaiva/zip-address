@@ -1,6 +1,14 @@
 import { Home, NotFound, Search } from '../Pages';
+import { FunctionComponent, ComponentClass } from 'react';
 
-const routes = [
+interface Route {
+	exact?:boolean,
+	path?:string,
+	component:ComponentClass|FunctionComponent,
+	key:string
+}
+
+const routes:Route[] = [
 	{
 		exact: true,
 		path: '/',

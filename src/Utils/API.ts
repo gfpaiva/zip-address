@@ -1,8 +1,14 @@
+declare var process : {
+	env: {
+		MAPS_API_KEY: string
+	}
+}
+
 const CEP_BASE_URL = 'https://viacep.com.br';
 const MAPS_BASE_URL = 'https://maps.googleapis.com/maps/api';
 export const MAPS_API_KEY = process.env.MAPS_API_KEY;
 
-const requestGet = async URL => {
+const requestGet = async (URL:string) => {
 	try {
 		const res = await fetch(URL);
 
@@ -19,5 +25,5 @@ const requestGet = async URL => {
 	}
 }
 
-export const getAddressByZip = async zipCode => await requestGet(`${CEP_BASE_URL}/ws/${zipCode}/json`);
-export const getGeolocation = async query => await requestGet(`${MAPS_BASE_URL}/geocode/json?address=${encodeURI(query)}&key=${MAPS_API_KEY}`);
+export const getAddressByZip = async (zipCode:string) => await requestGet(`${CEP_BASE_URL}/ws/${zipCode}/json`);
+export const getGeolocation = async (query:string) => await requestGet(`${MAPS_BASE_URL}/geocode/json?address=${encodeURI(query)}&key=${MAPS_API_KEY}`);

@@ -1,12 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
 
 import './Button.scss';
 
-export default function Button({ big, className, children, ...rest }) {
+export enum ButtonTypes {
+	submit = 'submit',
+	button = 'button',
+	reset = 'reset'
+}
+
+interface ButtonProps {
+	big?:boolean,
+	className?:string,
+	children:JSX.Element,
+	type?:ButtonTypes,
+	disabled?:boolean,
+}
+
+export default function Button({ big, className, children, type, ...rest }:ButtonProps) {
 	return (
 		<button
 			className={`${big ? 'button--big ' : ''}${className ? `${className} ` : '' }button bg-primary color-secondary`}
+			type={type ? type : ButtonTypes.button}
 			{...rest}
 		>
 			<span className="button__content">

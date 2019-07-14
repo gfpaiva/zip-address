@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 
 import { useAppContext } from '../../Providers/App.Context';
 
-import logo from './luizalabs-logo.png';
+const logo = require('./luizalabs-logo.png');
 import './Header.scss';
 
 export default function Header() {

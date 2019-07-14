@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import  * as React from 'react';
 import MaskedInput from 'react-text-mask';
-import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { CSSTransition } from 'react-transition-group';
 
@@ -8,7 +7,7 @@ import { useAppContext } from '../../Providers/App.Context';
 import { getAddressByZip, getGeolocation } from '../../Utils/API';
 
 import AddressInfo from '../AddressInfo';
-import Button from '../Button';
+import Button, { ButtonTypes } from '../Button';
 import { Search } from '../Icons';
 
 import './SearchForm.scss';
@@ -18,7 +17,7 @@ export default function SearchForm() {
 	const { loading, setLoading } = useAppContext();
 
 	// Map State (Infos and visibility hanlder)
-	const [ map, setMap ] = useState({
+	const [ map, setMap ] = React.useState({
 		visible: false,
 		coords: {
 			lat: 0,
@@ -34,20 +33,13 @@ export default function SearchForm() {
 	});
 
 	// Error state visibility handler
-	const [ hasError, setHasError ] = useState(false);
+	const [ hasError, setHasError ] = React.useState(false);
 
 	return (
 		<>
 			{/* FORM WITH VALIDATION */}
 			<Formik
 				initialValues={{zipCode: ''}}
-				validate={values => {
-					let errors = {}
-
-					if(!/\d{5}-\d{3}/.test(values.zipCode)) errors.zipCode = 'Digite um CEP válido';
-
-					return errors;
-				}}
 				onSubmit={async ({ zipCode }, { resetForm }) => {
 					if(map.address.cep === zipCode) return resetForm();
 
@@ -79,6 +71,14 @@ export default function SearchForm() {
 						setLoading(false);
 					}
 				}}
+				validate={values => {
+					let errors = { zipCode: '' }
+
+					if(!/\d{5}-\d{3}/.test(values.zipCode)) errors.zipCode = 'Digite um CEP válido';
+
+					return errors;
+				}}
+				validateOnBlur
 			>
 				{({
 					values,
@@ -114,7 +114,7 @@ export default function SearchForm() {
 							<Button
 								big
 								className="search-form__button"
-								type="submit"
+								type={ButtonTypes.submit}
 								disabled={loading}
 							>
 								<Search />
