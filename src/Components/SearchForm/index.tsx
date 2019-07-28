@@ -3,11 +3,13 @@ import MaskedInput from 'react-text-mask';
 import { Formik } from 'formik';
 import { CSSTransition } from 'react-transition-group';
 
+import { ButtonTypes, FormError } from '../../../types';
+
 import { useAppContext } from '../../Providers/App.Context';
 import { getAddressByZip, getGeolocation } from '../../Utils/API';
 
 import AddressInfo from '../AddressInfo';
-import Button, { ButtonTypes } from '../Button';
+import Button from '../Button';
 import { Search } from '../Icons';
 
 import './SearchForm.scss';
@@ -45,6 +47,10 @@ export default function SearchForm() {
 
 					setMap(prevState => ({
 						...prevState,
+						address: {
+							...prevState.address,
+							cep: zipCode
+						},
 						visible: false
 					}));
 					setHasError(false);
@@ -64,15 +70,15 @@ export default function SearchForm() {
 							address
 						});
 
-						setLoading(false);
 						resetForm();
 					} catch(err) {
 						setHasError(true);
+					} finally {
 						setLoading(false);
 					}
 				}}
 				validate={values => {
-					let errors = { zipCode: '' }
+					let errors:FormError = {}
 
 					if(!/\d{5}-\d{3}/.test(values.zipCode)) errors.zipCode = 'Digite um CEP válido';
 
