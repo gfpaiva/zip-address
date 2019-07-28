@@ -1,4 +1,4 @@
-module.exports = {
+const getGeolocation = {
 	"results": [{
 		"address_components": [{
 				"long_name": "02050",
@@ -75,4 +75,6 @@ module.exports = {
 		]
 	}],
 	"status": "OK"
-}
+};
+
+export default getGeolocation;

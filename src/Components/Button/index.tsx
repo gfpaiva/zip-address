@@ -5,7 +5,7 @@ import { ButtonProps, ButtonTypes } from '../../../types';
 
 import './Button.scss';
 
-export default function Button({ big, className, children, type, ...rest }:ButtonProps) {
+export default function Button({ big, className, children , type, ...rest }:ButtonProps) {
 	return (
 		<button
 			className={`${big ? 'button--big ' : ''}${className ? `${className} ` : '' }button bg-primary color-secondary`}
@@ -22,7 +22,8 @@ export default function Button({ big, className, children, type, ...rest }:Butto
 Button.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.node),
-		PropTypes.node
+		PropTypes.node,
+		PropTypes.string
 	]).isRequired,
 	big: PropTypes.bool,
 	className: PropTypes.string

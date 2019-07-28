@@ -4,6 +4,7 @@ exports[`<Button /> should mount properly 1`] = `
 <Button>
   <button
     className="button bg-primary color-secondary"
+    type="button"
   >
     <span
       className="button__content"

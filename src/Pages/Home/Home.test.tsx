@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { mount } from 'enzyme';
 
-import Home from './index';
+import { Home } from './index';
 
 describe('<Home />', () => {
 	it('should mount properly', () => {

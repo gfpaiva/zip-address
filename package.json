@@ -7,7 +7,7 @@
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "test": "jest",
-    "test:ci": "npm test && npm run build:prod"
+    "test:ci": "npm test -- --silent && npm run build:prod"
   },
   "keywords": [
     "zip",
@@ -28,6 +28,8 @@
   },
   "homepage": "https://github.com/gfpaiva/zip-address#readme",
   "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/google-map-react": "^0.23.12",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.6.2",

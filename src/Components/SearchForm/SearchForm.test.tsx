@@ -1,6 +1,6 @@
-import React from 'react';
-import wait from 'waait';
-import { mount} from 'enzyme';
+import * as React from 'react';
+import * as wait from 'waait';
+import { mount } from 'enzyme';
 
 import getAddressByZip from '../../../__mocks__/getAddressByZip';
 import getGeolocation from '../../../__mocks__/getGeolocation';
@@ -42,7 +42,7 @@ describe('<SearchForm />', () => {
 	});
 
 	it('should submit form', async () => {
-		fetch
+		fetchMock
 			.once(JSON.stringify(getAddressByZip))
 			.once(JSON.stringify(getGeolocation))
 
@@ -72,8 +72,8 @@ describe('<SearchForm />', () => {
 	});
 
 	it('should submit form and get errors properly', async () => {
-		fetch
-			.mockRejectOnce('ERRO')
+		fetchMock
+			.mockRejectOnce()
 
 		const wrapper = mount(
 			<AppProvider>

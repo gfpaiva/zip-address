@@ -23,7 +23,7 @@ export enum ButtonTypes {
 export interface ButtonProps {
 	big?:boolean,
 	className?:string,
-	children:JSX.Element,
+	children:JSX.Element|String,
 	type?:ButtonTypes,
 	disabled?:boolean,
 }
