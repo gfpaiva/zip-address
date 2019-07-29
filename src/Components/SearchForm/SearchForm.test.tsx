@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as wait from 'waait';
 import { mount } from 'enzyme';
 
 import getAddressByZip from '../../../__mocks__/getAddressByZip';
@@ -8,6 +7,8 @@ import getGeolocation from '../../../__mocks__/getGeolocation';
 import AppProvider from '../../Providers/App.Context'
 
 import SearchForm from './index';
+
+const wait = (amount = 0) => new Promise(resolve => setTimeout(resolve, amount));
 
 describe('<SearchForm />', () => {
 	it('should mount properly', () => {
