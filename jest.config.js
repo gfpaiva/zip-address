@@ -37,7 +37,14 @@ module.exports = {
   // Indicates whether each individual test should be reported during the run
   verbose: true,
 
-  setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
+  transform: {
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  },
+
+  setupFilesAfterEnv: [
+    "<rootDir>/setupEnzyme.ts",
+    "<rootDir>/setupFetchMock.ts"
+  ],
 
   snapshotSerializers: [
     "enzyme-to-json/serializer"
