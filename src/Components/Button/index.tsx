@@ -1,9 +1,21 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 
-import { ButtonProps, ButtonTypes } from '../../../types';
-
 import './Button.scss';
+
+export enum ButtonTypes {
+	submit = 'submit',
+	button = 'button',
+	reset = 'reset'
+}
+
+interface ButtonProps {
+	big?:boolean,
+	className?:string,
+	children:JSX.Element|String,
+	type?:ButtonTypes,
+	disabled?:boolean,
+}
 
 export default function Button({ big, className, children , type, ...rest }:ButtonProps) {
 	return (

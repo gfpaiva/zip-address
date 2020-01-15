@@ -3,7 +3,7 @@ import MaskedInput from 'react-text-mask';
 import { Formik } from 'formik';
 import { CSSTransition } from 'react-transition-group';
 
-import { ButtonTypes, FormError } from '../../../types';
+import { ButtonTypes } from '../Button';
 
 import { useAppContext } from '../../Providers/App.Context';
 import { getAddressByZip, getGeolocation } from '../../Utils/API';
@@ -13,6 +13,10 @@ import Button from '../Button';
 import { Search } from '../Icons';
 
 import './SearchForm.scss';
+
+interface FormError {
+	zipCode?:string
+}
 
 export default function SearchForm() {
 	// Loading from context
