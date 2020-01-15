@@ -4,17 +4,14 @@ exports[`<SearchForm /> should mount properly 1`] = `
 <AppProvider>
   <SearchForm>
     <Formik
-      enableReinitialize={false}
       initialValues={
         Object {
           "zipCode": "",
         }
       }
-      isInitialValid={false}
       onSubmit={[Function]}
       validate={[Function]}
       validateOnBlur={true}
-      validateOnChange={true}
     >
       <form
         className="search-form bg-secondary color-primary"
