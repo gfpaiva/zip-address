@@ -2,13 +2,25 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 
-import { AddressInfoProps, Geolocation } from '../../../types';
-
 import { MAPS_API_KEY } from '../../Utils/API';
 
 import { Map, Pin } from '../Icons';
 
 import './AddressInfo.scss';
+
+interface Geolocation {
+	lat:number
+	lng:number
+}
+
+interface AddressInfoProps {
+	street:string,
+	neighborhood:string,
+	city:string,
+	uf:string,
+	zip:string,
+	geolocation:Geolocation
+}
 
 const Marker = () => <div className="address-info__marker"><Pin /></div>
 
