@@ -48,7 +48,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.3",
     "file-loader": "^5.0.2",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0",
     "jest-fetch-mock": "^3.0.1",
@@ -64,7 +64,7 @@
     "typescript": "^3.7.4",
     "waait": "^1.0.5",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
